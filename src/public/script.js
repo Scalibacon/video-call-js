@@ -1,3 +1,5 @@
+// script feito com base no tutorial.
+// não é usado porque fiz uma versão melhor no meu caso
 const socket = io('/');
 const videoGrid = document.getElementById('video-grid');
 const peers = {};

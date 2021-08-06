@@ -7,11 +7,16 @@ app.set('views', './src/views');
 app.use(express.static('./src/public'));
 
 app.get('/', (request, response) => {
-  response.redirect(`/${uuidV4()}`);
+  return response.render('index');
 })
 
-app.get('/:room', (request, response) => {
-  response.render('room', { roomId: request.params.room })
+app.get('/room', (request, response) => {
+  // return response.redirect(`/${uuidV4()}`);
+  return response.redirect(`/${1}`);
+})
+
+app.get('/:roomId', (request, response) => {
+  response.render('room', { roomId: request.params.roomId })
 })
 
 module.exports = app;
