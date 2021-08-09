@@ -1,6 +1,7 @@
 const videoGrid = document.getElementById('video-grid');
 const peers = {};
 const socket = io('/');
+let myStreamTracks;
 
 //necessário executar peerjs --port 3001 no servidor
 const myPeer = new Peer(undefined, {
@@ -9,12 +10,14 @@ const myPeer = new Peer(undefined, {
 });
 
 const myVideo = document.createElement('video');
+myVideo.setAttribute('class', 'user');
 myVideo.muted = true;
 
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(myStream => {
+  myStreamTracks = myStream;
   setupVideoCall(myStream);
 })
 
@@ -83,4 +86,17 @@ function connectToNewUser(userId, stream){
   })
 
   peers[userId] = call;
+}
+
+function copyRoomCodeToClipboard(){
+  navigator.clipboard.writeText(ROOM_ID);
+}
+
+function muteOrUnmuteMicrophone(event){
+  myStreamTracks.getAudioTracks()[0].enabled = !myStreamTracks.getAudioTracks()[0].enabled;
+}
+
+function hideOrShowVideo(event){
+  console.log(myStreamTracks)
+  myStreamTracks.getVideoTracks()[0].enabled = !myStreamTracks.getVideoTracks()[0].enabled;
 }

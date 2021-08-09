@@ -11,8 +11,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/room', (request, response) => {
-  // return response.redirect(`/${uuidV4()}`);
-  return response.redirect(`/${1}`);
+  return response.redirect(`/${uuidV4()}`);
 })
 
 app.get('/:roomId', (request, response) => {
