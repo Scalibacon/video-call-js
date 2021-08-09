@@ -5,19 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/index.css">
-  <title>Salas de Vídeo</title>
+  <title>face2face - Home</title>
 </head>
 <body>
   
   <div id="container">
     <aside>
-      <h1>Sei lá</h1>
+      <!-- <strong>Crie salas de vídeo simples</strong> -->      
     </aside>
-    <section>
-      <a href="/room"><button>Criar sala</button></a>
-      <button>Entrar em sala existente</button>
-      <input type="text" placeholder="Digite o ID da sala..." />
-    </section>    
+    <main>
+      <div class="content">
+        <img src="./assets/logo.png" alt="face2face" class="logo"/>
+        <button class="create">Criar uma sala de vídeo</button>
+        <div class="separator">ou entre em uma sala</div>
+        <form>
+          <input type="text" placeholder="Digite o ID da sala" required />
+          <button type="submit">Entrar na sala</button> 
+        </form>       
+      </div>      
+    </main>    
   </div>
  
 </body>
