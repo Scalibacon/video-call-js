@@ -5,16 +5,16 @@ const io = require('socket.io')(server);
 let rooms = [];
 
 io.on('connection', socket => {
-  socket.on('join-room', (roomId, userId) => {
+  socket.on('join-room', (roomId, peerId) => {
 
     socket.join(roomId);
     
     if(!rooms[roomId]) rooms[roomId] = {};
-    rooms[roomId][socket.id] = userId;
+    rooms[roomId][socket.id] = peerId;
 
-    socket.broadcast.to(roomId).emit('user-connected', userId)
+    socket.broadcast.to(roomId).emit('peer-connected', peerId)
 
-    socket.emit('connect-with-old-users', rooms[roomId]);
+    socket.emit('connect-with-old-peers', rooms[roomId]);
   
     socket.on('disconnect', () => {
       // remove o id do usuário da sala
@@ -27,7 +27,7 @@ io.on('connection', socket => {
         break;
       }      
 
-      socket.broadcast.to(roomId).emit('user-disconnected', userId)
+      socket.broadcast.to(roomId).emit('peer-disconnected', peerId)
     })
   })
 })

@@ -27,8 +27,23 @@
     </header>    
     
     <div id="video-grid"></div>
-    <button onclick="muteOrUnmuteMicrophone(event)">Mute</button>
-    <button onclick="hideOrShowVideo(event)">Hide</button>
+    <div id="options-bar">
+      <div class="icon-container" id="mic-container" onclick="muteOrUnmuteMicrophone(event)">
+        <img src="/assets/mic.png" class="icon" alt="microphone"/>
+      </div>
+
+      <div class="icon-container" id="cam-container" onclick="hideOrShowVideo(event)">
+        <img src="/assets/cam.png" class="icon" alt="camera"/>
+      </div>
+    </div>    
+
+    <!-- 
+    <div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">
+        Kiranshastry
+      </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+    -->
+
   </div>
 </body>
 </html>
