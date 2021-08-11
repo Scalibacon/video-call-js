@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "concurrently \"nodemon src/server.js\" \"peerjs --port 3001\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.2.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "socket.io": "^4.1.3",

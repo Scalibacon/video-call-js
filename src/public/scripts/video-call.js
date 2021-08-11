@@ -66,21 +66,12 @@ function addVideoStream(video, stream, peerId){
     video.play();
   });
 
-  //addVideoToScreen(video, peerId)
   videoGrid.append(video);
 }
 
 //fazer calls com outros peers
 function connectToNewPeer(peerId, stream){
   const call = myPeer.call(peerId, stream); //conecta com outro peer pelo id dele
-
-  // retirado pois estava duplicando os vídeos dos outros peers
-  // const video = document.createElement('video');
-  // video.setAttribute("id", peerId);
-  // recebe stream de outro peer
-  // call.on('stream', peerVideoStream => {
-  //   addVideoStream(video, peerVideoStream);
-  // });
 
   call.on('close', () => {
     const peerVideo = document.getElementById(peerId);
@@ -90,11 +81,7 @@ function connectToNewPeer(peerId, stream){
   peers[peerId] = call;
 }
 
-function copyRoomCodeToClipboard(){
-  navigator.clipboard.writeText(ROOM_ID);
-}
-
-function muteOrUnmuteMicrophone(event){
+function muteOrUnmuteMicrophone(){
   if(!myStreamTracks){
     return;
   }
@@ -110,7 +97,7 @@ function muteOrUnmuteMicrophone(event){
   }
 }
 
-function hideOrShowVideo(event){
+function hideOrShowVideo(){
   if(!myStreamTracks){
     return;
   }
