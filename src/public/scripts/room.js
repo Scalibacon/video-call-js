@@ -3,7 +3,7 @@ let keyPressed = {};
 document.addEventListener('keydown', handleKeyDown);
 document.addEventListener('keyup', handleKeyUp);
 
-function handleKeyDown(event){
+function handleKeyDown(event){  
   if(keyPressed[event.code]){
     return;
   } 

@@ -74,6 +74,33 @@ button.room-code span {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+#video-grid > div {
+  position: relative;
+}
+.muted::before {
+  content: '';
+  position: absolute;
+  background-color: rgba(240, 255, 255, 0.25);
+  background-image: url('../assets/muted.png');
+  background-size: cover;
+  background-position: center;
+  height: 30px;
+  width: 30px;
+  top: 22px;
+  left: 5px;
+}
+.cam-off::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(240, 255, 255, 0.25);
+  background-image: url('../assets/cam-off.png');
+  background-size: cover;
+  background-position: center;
+  height: 30px;
+  width: 30px;
+  top: 22px;
+  left: 40px;
+}
 video {
   width: 325px;
   border: solid 2px rgb(131, 90, 253);
@@ -83,21 +110,21 @@ video.user {
   border: solid 2px limegreen;
 }
 
+
 #options-bar{
   width: 100%;
-  height: 75px;
+  height: 70px;
   padding: 5px 35px;
 
   position: fixed;
   bottom: 0;
   left:0;
 
-  background-color: rgba(10,10,10,1);  
+  background-color: rgb(70, 37, 158);  
 
   display: flex;
   flex-direction: row;
   align-items: center;
-
 }
 #options-bar .icon-container{
   height: 80%;
