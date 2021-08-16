@@ -63,47 +63,43 @@ button.room-code span {
 #video-grid{
   overflow-y: auto;
   flex: 1;
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
 
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-items:flex-start;
   flex-wrap: wrap;
 }
-#video-grid > div {
-  position: relative;
-  /* background: chartreuse; */
+#video-grid > div {  
+  position: relative;  
+  width:25%;
+  height: auto;
 }
 video {
-  width: 325px;
+  width: 100%;
   border: solid 2px rgb(131, 90, 253);
 }
 video.user {
-  border: solid 2px limegreen;
+  /* border: solid 2px limegreen; */
 }
-.muted::before {
-  content: '';
+#video-grid > div > section{
   position: absolute;
-  background-color: rgba(240, 255, 255, 0.25);
-  background-image: url('../assets/muted.png');
-  background-size: cover;
-  background-position: center;
-  height: 30px;
-  width: 30px;
-  top: 22px;
-  left: 5px;
+  height:40px;
+  padding: 5px;
+  width: 100%;
+  bottom: 5px;
+  left: 0px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.cam-off::after {
-  content: '';
-  position: absolute;
+#video-grid > div > section > img {
+  height:25px;
+  width: 25px;
+  margin: 5px;
+  display: none;
   background-color: rgba(240, 255, 255, 0.25);
-  background-image: url('../assets/cam-off.png');
-  background-size: cover;
-  background-position: center;
-  height: 30px;
-  width: 30px;
-  top: 22px;
-  left: 40px;
 }
 
 #options-bar{
@@ -111,10 +107,6 @@ video.user {
   max-height: 70px;
   padding: 5px 35px;
   flex:1;
-  /* position: fixed;
-  bottom: 0;
-  left:0; */
-
   background-color: rgb(70, 37, 158);  
 
   display: flex;

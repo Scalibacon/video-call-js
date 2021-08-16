@@ -1,3 +1,4 @@
+const { info } = require('console');
 const http = require('http');
 const app = require('./app');
 const server = http.Server(app);
@@ -22,20 +23,20 @@ io.on('connection', socket => {
     })
 
     socket.on('mute', () => {
-      // io.in(roomId) se quiser emitir pro sender também
-      socket.broadcast.to(roomId).emit('peer-mute', peerId)
+      io.in(roomId).emit('peer-mute', peerId) // emite pro sender também
+      // socket.broadcast.to(roomId).emit('peer-mute', peerId) //geral menos sender
     })
 
     socket.on('unmute', () => {
-      socket.broadcast.to(roomId).emit('peer-unmute', peerId)
+      io.in(roomId).emit('peer-unmute', peerId)
     })
 
     socket.on('close-camera', () => {
-      socket.broadcast.to(roomId).emit('peer-close-camera', peerId)
+      io.in(roomId).emit('peer-close-camera', peerId)
     })
 
     socket.on('open-camera', () => {
-      socket.broadcast.to(roomId).emit('peer-open-camera', peerId)
+      io.in(roomId).emit('peer-open-camera', peerId)
     })
   })
 })

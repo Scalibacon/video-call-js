@@ -80,6 +80,18 @@ function addVideoStream(video, stream, peerId){
   
   const container = document.createElement('div');
 
+  const videoStatusSection = document.createElement('section');
+  const imgMuted = document.createElement('img');
+  imgMuted.src = '../assets/muted.png';
+  imgMuted.classList.add('muted');
+
+  const imgCamOff = document.createElement('img');
+  imgCamOff.src = '../assets/cam-off.png';
+  imgCamOff.classList.add('cam-off');
+
+  videoStatusSection.append(imgMuted);
+  videoStatusSection.append(imgCamOff);
+
   video.setAttribute('id', peerId);
   video.srcObject = stream;
 
@@ -87,7 +99,9 @@ function addVideoStream(video, stream, peerId){
     video.play();
   });
 
-  container.append(video)
+  container.append(video);
+  container.append(videoStatusSection);
+
   videoGrid.append(container);
 }
 
@@ -141,8 +155,6 @@ function hideOrShowVideo(){
 function removePeerVideo(peerId){
   const peerVideoContainer = document.getElementById(peerId).parentElement;
   if(peerVideoContainer) {
-    peerVideoContainer.style.display = "none";
-    videoGrid.removeChild(peerVideoContainer);
     peerVideoContainer.remove();
   }
 }
@@ -151,26 +163,30 @@ function mutePeer(peerId){
   console.log('peer muted: ' + peerId)
 
   const peerVideoContainer = document.getElementById(peerId).parentElement;
-  peerVideoContainer.classList.add('muted');
+  const imgMuted = peerVideoContainer.querySelector('.muted');
+  imgMuted.style.display = "block";
 }
 
 function unmutePeer(peerId){
   console.log('peer unmuted: ' + peerId)
 
   const peerVideoContainer = document.getElementById(peerId).parentElement;
-  peerVideoContainer.classList.remove('muted');
+  const imgMuted = peerVideoContainer.querySelector('.muted');
+  imgMuted.style.display = "none";
 }
 
 function hidePeerVideo(peerId){
   console.log('peer closed camera: ' + peerId)
 
   const peerVideoContainer = document.getElementById(peerId).parentElement;
-  peerVideoContainer.classList.add('cam-off');
+  const imgCamOff = peerVideoContainer.querySelector('.cam-off');
+  imgCamOff.style.display = "block";
 }
 
 function showPeerVideo(peerId){
   console.log('peer opened camera: ' + peerId)
 
   const peerVideoContainer = document.getElementById(peerId).parentElement;
-  peerVideoContainer.classList.remove('cam-off');
+  const imgCamOff = peerVideoContainer.querySelector('.cam-off');
+  imgCamOff.style.display = "none";
 }
