@@ -74,6 +74,10 @@ function setupVideoCall(myStream){
 
 //adiciona uma stream de áudio/vídeo num elemento video
 function addVideoStream(video, stream, peerId){
+  if(document.getElementById(peerId)){
+    return;
+  }
+  
   const container = document.createElement('div');
 
   video.setAttribute('id', peerId);
@@ -137,6 +141,7 @@ function hideOrShowVideo(){
 function removePeerVideo(peerId){
   const peerVideoContainer = document.getElementById(peerId).parentElement;
   if(peerVideoContainer) {
+    peerVideoContainer.style.display = "none";
     videoGrid.removeChild(peerVideoContainer);
     peerVideoContainer.remove();
   }

@@ -10,6 +10,8 @@ body {
 
 #container{  
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 header {
   padding: 0 50px;
@@ -59,15 +61,9 @@ button.room-code span {
 }
 
 #video-grid{
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-auto-rows: 300px; */
-  /* padding: 10px 15px; */
-  max-height: calc(100vh - 80px - 75px);
-  margin-bottom: 75px;
   overflow-y: auto;
-
-  /* background-color: lightcoral; */
+  flex: 1;
+  background-color: lightcoral;
 
   display: flex;
   flex-direction: row;
@@ -76,6 +72,14 @@ button.room-code span {
 }
 #video-grid > div {
   position: relative;
+  /* background: chartreuse; */
+}
+video {
+  width: 325px;
+  border: solid 2px rgb(131, 90, 253);
+}
+video.user {
+  border: solid 2px limegreen;
 }
 .muted::before {
   content: '';
@@ -101,24 +105,15 @@ button.room-code span {
   top: 22px;
   left: 40px;
 }
-video {
-  width: 325px;
-  border: solid 2px rgb(131, 90, 253);
-  margin: 15px 0px;
-}
-video.user {
-  border: solid 2px limegreen;
-}
-
 
 #options-bar{
   width: 100%;
-  height: 70px;
+  max-height: 70px;
   padding: 5px 35px;
-
-  position: fixed;
+  flex:1;
+  /* position: fixed;
   bottom: 0;
-  left:0;
+  left:0; */
 
   background-color: rgb(70, 37, 158);  
 
