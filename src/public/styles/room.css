@@ -33,11 +33,15 @@ button.room-code {
   border-radius: 8px;
   overflow: hidden;
 
-  background: #fff;
+  background: rgb(255, 255, 255);
   border: 1px solid rgb(131, 90, 253);
   cursor: pointer;
   padding: 0;
   display: flex;
+  transition: filter 0.2s linear;
+}
+button.room-code:hover{
+  filter:brightness(95%);
 }
 button.room-code div {
   height: 100%;
@@ -79,27 +83,23 @@ video {
   width: 100%;
   border: solid 2px rgb(131, 90, 253);
 }
-video.user {
-  /* border: solid 2px limegreen; */
-}
 #video-grid > div > section{
   position: absolute;
-  height:40px;
-  padding: 5px;
-  width: 100%;
-  bottom: 5px;
-  left: 0px;
-  /* background-color: red; */
+  height: auto;
+  width: auto;
+  bottom: 6px;
+  left: 2px;
+  background-color: rgba(25,25,25,0.75);
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 #video-grid > div > section > img {
-  height:25px;
-  width: 25px;
+  height:17px;
+  width: 17px;
   margin: 5px;
   display: none;
-  background-color: rgba(240, 255, 255, 0.25);
+  /* background-color: rgba(240, 255, 255, 0.25); */
 }
 
 #options-bar{
