@@ -2,7 +2,7 @@ const socketIO = require('socket.io');
 const { PeerServer } = require('peer');
 const app = require('./app');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => console.log(`Server ON (PORT ${PORT})`));
 const io = socketIO(server);
 
