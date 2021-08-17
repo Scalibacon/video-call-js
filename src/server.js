@@ -1,8 +1,13 @@
-const { info } = require('console');
-const http = require('http');
+const socketIO = require('socket.io');
+const { PeerServer } = require('peer');
 const app = require('./app');
-const server = http.Server(app);
-const io = require('socket.io')(server);
+
+const PORT = 3000;
+const server = app.listen(PORT, () => console.log(`Server ON (PORT ${PORT})`));
+const io = socketIO(server);
+
+PeerServer({ port: 3001, path: '/' });
+
 let rooms = {};
 
 io.on('connection', socket => {
@@ -69,6 +74,3 @@ function removePeerFromRoom(socketId){
     console.log('Error trying to find peer to remove: ' + error);
   }
 }
-
-const PORT = 3000;
-server.listen(PORT, () => console.log('Server ON'));
