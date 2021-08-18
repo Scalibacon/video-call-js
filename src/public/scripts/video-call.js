@@ -5,9 +5,8 @@ let socket = io('/');
 let myStreamTracks;
 
 const myPeer = new Peer(undefined, {
-  path: '/peerjs',
   host: '/',
-  port: SERVER_PORT
+  port: 3001
 });
 
 navigator.mediaDevices.getUserMedia({
