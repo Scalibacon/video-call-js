@@ -1,12 +1,17 @@
+const http = require('http');
 const socketIO = require('socket.io');
-const { PeerServer } = require('peer');
-const app = require('./app');
+const { ExpressPeerServer } = require("peer");
+const { app, PORT } = require('./app');
+const server = http.Server(app);
 
-const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, () => console.log(`Server ON (PORT ${PORT})`));
+const peerServer = ExpressPeerServer(
+  server, 
+  { debug: true }
+);
+app.use("/peerjs", peerServer);
+server.listen(PORT, () => console.log(`Server ON (${PORT})`));
+
 const io = socketIO(server);
-
-PeerServer({ port: 3001, path: '/' });
 
 let rooms = {};
 

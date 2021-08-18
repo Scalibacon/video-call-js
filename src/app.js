@@ -1,6 +1,7 @@
 const { v4: uuidV4 } = require('uuid');
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
@@ -15,7 +16,7 @@ app.get('/room', (request, response) => {
 })
 
 app.get('/:roomId', (request, response) => {
-  response.render('room', { roomId: request.params.roomId })
+  response.render('room', { roomId: request.params.roomId, serverPort: PORT })
 })
 
-module.exports = app;
+module.exports = { app, PORT };

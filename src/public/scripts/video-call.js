@@ -1,12 +1,13 @@
 const videoGrid = document.getElementById('video-grid');
 const peers = {};
-const socket = io('/');
+let socket = io('/');
+
 let myStreamTracks;
 
-//necessário executar peerjs --port 3001 no servidor
 const myPeer = new Peer(undefined, {
+  path: '/peerjs',
   host: '/',
-  port: 3001
+  port: SERVER_PORT
 });
 
 navigator.mediaDevices.getUserMedia({
