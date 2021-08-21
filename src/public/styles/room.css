@@ -149,3 +149,33 @@ video {
   filter: invert(100%);
   z-index: 4;
 }
+
+@media only screen and (max-width: 1000px) {
+  #video-grid > div {   
+    width:33%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #video-grid{
+    justify-content: center;
+  }
+  #video-grid > div {   
+    width:50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+  header a img{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #video-grid > div {   
+    width: 75%;
+  }  
+}
